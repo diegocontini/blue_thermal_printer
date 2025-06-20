@@ -866,6 +866,7 @@ public class BlueThermalPrinterPlugin implements FlutterPlugin, ActivityAware,Me
       Bitmap bmp = BitmapFactory.decodeFile(pathImage);
       if (bmp != null) {
         byte[] command = Utils.decodeBitmap(bmp);
+        THREAD.write(PrinterCommands.ESC);
         THREAD.write(PrinterCommands.ESC_ALIGN_CENTER);
         THREAD.write(command);
       } else {
